@@ -68,5 +68,5 @@ async def list_requests(
     Получение списка последних запросов к кошелькам с пагинацией.
     Представленны 2 варианта пагинации
     """
-    query = select(WalletRequest).order_by(WalletRequest.created_at)
+    query = select(WalletRequest).order_by(- WalletRequest.id)
     return paginate(db, query)
